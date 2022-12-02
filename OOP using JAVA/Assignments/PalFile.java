@@ -38,7 +38,7 @@ public class PalFile
             StringTokenizer st = new StringTokenizer(str); // To split string to words
             i=0; 
             int count=0;
-            FileOutputStream fpal = new FileOutputStream(pal); // Writing to file 'pal.txt'
+            FileOutputStream fpal = new FileOutputStream(pal);
             System.out.println("\n\n\nInside file 'pal.txt':");
             while(st.hasMoreTokens())
             {
