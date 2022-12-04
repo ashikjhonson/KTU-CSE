@@ -1,5 +1,8 @@
+/*
+@ author Jestin
+*/
 import java.util.Scanner;
-class Array
+class LargestDifference
 {
     Scanner sc = new Scanner(System.in);
     int n;
