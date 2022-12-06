@@ -1,6 +1,6 @@
 /*
 Quick sort 
-@ Ashik
+@ Ashik 
 */
 #include <stdio.h>
 
