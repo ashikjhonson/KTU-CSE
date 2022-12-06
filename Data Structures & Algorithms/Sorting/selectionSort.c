@@ -1,3 +1,7 @@
+/*
+Selection sort 
+@ Ashik
+*/
 #include <stdio.h>
 int n, arr[10];
 
