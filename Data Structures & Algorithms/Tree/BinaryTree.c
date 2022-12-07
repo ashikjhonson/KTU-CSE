@@ -32,6 +32,7 @@ struct node* create()
 
 void inorder(struct node* root)
 {
+
     if(root!=NULL)
     {
         inorder(root->left);
@@ -40,9 +41,34 @@ void inorder(struct node* root)
     }
 }
 
+void preorder(struct node* root)
+{
+    if(root!=NULL)
+    {
+        printf("[%d]  ",root->data);
+        preorder(root->left);
+        preorder(root->right);
+    }
+}
+
+void postorder(struct node* root)
+{
+    if(root!=NULL)
+    {
+        postorder(root->left);
+        postorder(root->right);
+        printf("[%d]  ",root->data);
+    }
+}
+
 void main()
 {
     struct node* root;
     root = create();
+    printf("\nInorder -->  ");
     inorder(root);
+    printf("\nPreorder -->  ");
+    preorder(root);
+    printf("\nPostorder -->  ");
+    postorder(root);
 }
