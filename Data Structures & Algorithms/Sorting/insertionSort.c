@@ -11,7 +11,7 @@ void display(int array[], int size) {
 }
 
 void insertionSort(int array[], int size) {
-  int i;
+  //int i;
   for (int i = 1; i < size; i++) {
     int key = array[i];
     int j = i - 1;
