@@ -47,5 +47,6 @@ void main()
         }
     e++;
     }
-    while((x=pop())!='$')       printf("%c",x);
+    while((x=pop())!='$')       
+        printf("%c",x);
 }
