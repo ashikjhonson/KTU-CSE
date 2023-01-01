@@ -136,19 +136,19 @@ class Calculator extends JFrame implements ActionListener
 				result=num1*num2;
 				break;
 			case '/':
-                if(num2==0)
-                {
-                    textfield.setText("Error: Division by zero");
-                    return;
-                }
-                result=num1/num2;
+                		if(num2==0)
+                		{
+                    			textfield.setText("Error: Division by zero");
+                    			return;
+                		}
+                		result=num1/num2;
 				break;
 			}
 			textfield.setText(String.valueOf(result));
 			num1=result;
 		}
 		if(e.getSource()==clr) {
-            num1 = num2 = result = 0;
+            		num1 = num2 = result = 0;
 			textfield.setText("");
 		}
     }
