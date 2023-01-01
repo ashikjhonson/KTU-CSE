@@ -11,7 +11,7 @@ class Calculator extends JFrame implements ActionListener
     JPanel panel;
 
     double num1=0, num2=0, result=0;
-    char op;
+    char operator;
 
     Calculator()
     {
@@ -80,7 +80,7 @@ class Calculator extends JFrame implements ActionListener
         panel.add(mul);
         add(panel);
 
-
+        setResizable(false);
         setSize(270,300);
         setLayout(null);
         setVisible(true);
@@ -92,6 +92,63 @@ class Calculator extends JFrame implements ActionListener
 
     public void actionPerformed(ActionEvent e)
     {
-
+        try
+        {
+        for(int i=0;i<10;i++) {
+			if(e.getSource() == numButtons[i]) {
+				textfield.setText(textfield.getText().concat(String.valueOf(i)));
+			}
+		}
+		if(e.getSource()==dec) {
+			textfield.setText(textfield.getText().concat("."));
+		}
+		if(e.getSource()==add) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator ='+';
+			textfield.setText("");
+		}
+		if(e.getSource()==sub) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator ='-';
+			textfield.setText("");
+		}
+		if(e.getSource()==mul) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator ='*';
+			textfield.setText("");
+		}
+		if(e.getSource()==div) {
+			num1 = Double.parseDouble(textfield.getText());
+			operator ='/';
+			textfield.setText("");
+		}
+		if(e.getSource()==eql) {
+			num2=Double.parseDouble(textfield.getText());
+			
+			switch(operator) {
+			case '+':
+				result=num1+num2;
+				break;
+			case '-':
+				result=num1-num2;
+				break;
+			case '*':
+				result=num1*num2;
+				break;
+			case '/':
+				result=num1/num2;
+				break;
+			}
+			textfield.setText(String.valueOf(result));
+			num1=result;
+		}
+		if(e.getSource()==clr) {
+			textfield.setText("");
+		}
+    }
+    catch(Exception ex)
+    {
+        JOptionPane.showMessageDialog(numButtons[5],"Error occured:\n Try following steps\n * Enter only two operands at a time\n * Enter an operand before an operator");
+    }
     }
 }
