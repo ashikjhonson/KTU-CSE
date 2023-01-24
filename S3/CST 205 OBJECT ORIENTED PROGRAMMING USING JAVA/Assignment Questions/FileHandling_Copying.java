@@ -1,13 +1,14 @@
-/*Implement a Java program to create a text file and copy the file into
+/*
+Implement a Java program to create a text file and copy the file into
 a second file. Also append the number of words in that file. Use
 appropriate exception handling techniques.
-@ Author: Ashik Jhonson
+@Author: Ashik Jhonson
 */
 
 import java.io.*;
 import java.util.*;
 
-class FileHandling
+class FileHandling_copying
 {
     public static void main(String[] args) 
     {
