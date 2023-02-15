@@ -1,0 +1,31 @@
+* Implement a Java program to read a number from the console. The program 
+should check whether the number is prime or not and display the result in a 
+file (Folder name: ConsolePrime)
+
+* Implement a Java program to create a class called as “Number” with a data 
+member called limit. A class called as “Compute” inherits this class and has a 
+method called “secLargest” to display the second largest of an array of 
+numbers. The limit for the array should be used from the “Number” class. (SecLargest)
+
+* Implement a Java program to read a number in a file called “input.txt”. Read 
+that number from the file and display Fibonacci series up to that limit in 
+another file called “output.txt” (FiboFile)
+
+* Implement a Java program to generate the layout given below. When the user 
+enters numbers in the text fields labelled Number1 and Number2 and clicks on 
+the button labelled Calculate the larger of the two numbers must be displayed 
+in the text field labelled Result. (SwingLarger)
+
+* Implement a Java program to create an interface called “Number” with a 
+method called “display”. Two classes “NoDuplicate” and “Sum” inherits this 
+class. NoDuplicate class should remove the duplicate elements in an array. 
+Sum class should calculate the sum of digits of a number. Both classes should 
+use display method to print the result (Number)
+
+* Implement a Java program to create a class called “Matrix”. Use a method 
+called “input” to read elements of the matrix. Use another method “output” to 
+display the elements of the matrix. Inherit a class called “MatTranspose”. Use 
+a method called “transpose” to display the transpose of the matrix. (Matrix)
+
+* Implement a Java program to read two numbers in a file called “input.txt”. Use 
+“output.txt” file to display prime numbers between this given limit (FilePrime)
