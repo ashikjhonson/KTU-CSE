@@ -29,3 +29,12 @@ a method called “transpose” to display the transpose of the matrix. (Matrix)
 
 * Implement a Java program to read two numbers in a file called “input.txt”. Use 
 “output.txt” file to display prime numbers between this given limit (FilePrime)
+
+* Implement a Java program to read a number to a file called as “Input.txt”. Read 
+the number from the file and check whether it is an Armstrong number or not. 
+The output should be displayed in a file called as “Output.txt”. (ArmstrongFile)
+
+* Implement a Swing program with the layout given below. When the user enters 
+a number in the first text field and clicks the button labelled “Calculate” the 
+program should check whether the number is prime or not and must display 
+the result in the second text field (SwingPrime)
