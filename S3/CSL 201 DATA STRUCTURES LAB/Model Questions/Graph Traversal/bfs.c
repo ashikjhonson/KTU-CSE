@@ -1,37 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define MAX_NODES 1000
-
-typedef struct node {
+struct node
+{
     int data;
     struct node* next;
-} Node;
+}*new, *curr, *graph[20] = {NULL};
 
-void addEdge(Node* graph[], int u, int v) {
-    Node* new_node = (Node*)malloc(sizeof(Node));
-    new_node->data = v;
-    new_node->next = graph[u];
-    graph[u] = new_node;
+void addEdge(struct node* graph[], int u, int v)
+{
+    new = malloc(sizeof(struct node));
+    new->data = v;
+    new->next = graph[u];
+    graph[u] = new;
 }
 
-void bfs(Node* graph[], int start, int visited[]) {
+void bfs(struct node* graph[], int start, int visited[])
+{
     visited[start] = 1;
     printf("%d ", start);
-    // Create a queue for BFS
-    int queue[MAX_NODES];
-    int front = 0, rear = 0;
+
+    int queue[20], front =0, rear =0;
     queue[rear++] = start;
 
-    while (front < rear) {
+    while(front<rear)
+    {
         int u = queue[front++];
-        // Traverse all adjacent vertices of u
-        Node* curr = graph[u];
-        while (curr != NULL) {
+        curr = graph[u];
+        while(curr)
+        {
             int v = curr->data;
-            if (!visited[v]) {
+            if(!visited[v])
+            {
                 visited[v] = 1;
-                printf("%d ", v);
+                printf("%d ",v);
                 queue[rear++] = v;
             }
             curr = curr->next;
@@ -39,19 +41,19 @@ void bfs(Node* graph[], int start, int visited[]) {
     }
 }
 
-int main() {
-    Node* graph[MAX_NODES] = {NULL};
-    int num_nodes, num_edges;
-    scanf("%d %d", &num_nodes, &num_edges);
-    for (int i = 0; i < num_edges; i++) {
+void main()
+{
+    int n, e;
+    scanf("%d%d",&n,&e);
+
+    for(int i=0; i<e; i++)
+    {
         int u, v;
-        scanf("%d %d", &u, &v);
+        scanf("%d%d",&u,&v);
         addEdge(graph, u, v);
         addEdge(graph, v, u);
     }
 
-    int visited[MAX_NODES] = {0};
+    int visited[20] = {0};
     bfs(graph, 0, visited);
-
-    return 0;
 }
