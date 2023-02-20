@@ -8,9 +8,10 @@ void selectionSort()
     {
         int minLoc = i;
         for(int j=i+1; j<5; j++)
-            if(arr[j]<arr[minLoc])
+        {
+            if(arr[j]<arr[minLoc])  
                 minLoc = j;
-        
+        }
         if(minLoc!=i)
         {
             int temp = arr[minLoc];
