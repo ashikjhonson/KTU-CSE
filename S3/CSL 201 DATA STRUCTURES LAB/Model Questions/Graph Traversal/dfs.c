@@ -4,7 +4,7 @@
 struct node
 {
     int data;
-    struct node *next;
+    struct node* next;
 }*graph[20] = {NULL}, *new, *curr;
 
 void addEdge(struct node* graph[], int u, int v)
@@ -25,9 +25,8 @@ void dfs(struct node* graph[], int v, int visited[])
     {
         int u = curr->data;
         if(!visited[u])
-        {
             dfs(graph, u, visited);
-        }
+        
         if(curr)
             curr = curr->next;
     }
@@ -37,7 +36,6 @@ void main()
 {
     int n, e;
     scanf("%d%d",&n,&e);
-
     for(int i=0; i<e; i++)
     {
         int u, v;
