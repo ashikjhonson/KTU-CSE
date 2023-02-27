@@ -5,8 +5,8 @@
 int main()
 {
     fork();
-    fork();
+    fork(); // creates a duplicate child process
 
-    printf("PID: %d\tHello World!\n",getpid());
+    printf("PID: %d\tHello World!\n",getpid()); //getpid() - Process ID
     return 0;
 }
