@@ -5,8 +5,8 @@
 */
 
 #include <stdio.h>
-int frameSize, n_pages, n_frames;
-int frameLength = 0;
+#include <limits.h>
+int frameSize, n_pages, n_frames, frameLength;
 
 int found(int framesArray[], int page){
     for(int i=0; i<frameLength; i++){
@@ -22,8 +22,9 @@ int found(int framesArray[], int page){
 
 void fifo(int pagesArray[]){
     printf("\nFIFO\n");
-    int miss=0, hit=0, firstIndex = 0;    
+    int miss=0, hit=0, firstIndex = 0;
     int framesArray[frameSize];
+    frameLength = 0;
     for(int i=0; i<n_pages; i++){
         printf("\n[%d] Frames: ", pagesArray[i]);
         if(found(framesArray, pagesArray[i])){
@@ -42,7 +43,68 @@ void fifo(int pagesArray[]){
 }
 
 void lru(int pagesArray[]){
-    /*Complete LRU*/
+    int hit=0, miss=0, lruIndex=0;
+    int framesArray[frameSize], recent[frameSize];
+    frameLength = 0;
+    for(int i=0; i<n_pages; i++){
+        if(found(framesArray, pagesArray[i])){
+            hit++;
+            printf("Hit");
+        }
+        else{
+            miss++;
+            printf("Miss");
+            if(frameLength<frameSize){
+                framesArray[frameLength++] = pagesArray[i];                
+            }
+            else{
+
+            }
+        }
+    }
+    printf("\nMiss=%d\tHit=%d", miss, hit);
+}
+
+void lfu(int pagesArray[]){
+    int miss=0, hit=0, lfuIndex = 0, lfuValue = INT_MAX;
+    frameLength = 0;
+
+    int framesArray[frameSize], frequency[n_pages];
+    for(int i=0; i<n_pages; i++){
+        frequency[i] = 0;
+    }
+
+    for(int i=0; i<n_pages; i++){
+        printf("\n[%d] Frames: ", pagesArray[i]);
+        if(found(framesArray, pagesArray[i])){
+            hit++;
+            printf("Hit");
+        }
+        else{
+            miss++;
+            printf("Miss");
+            if(frameLength<frameSize){
+                framesArray[lfuIndex] = pagesArray[i];
+                lfuIndex++;
+                frequency[i]++;
+                frameLength++;
+            }
+            else{
+                for(int j=i-1; j>=0; j--){
+                    if(frequency[j]<=lfuValue){
+                        lfuValue = frequency[j];
+                        lfuIndex = j;
+                    }
+                }
+                printf("LFUINDEX: %d", lfuIndex);
+                framesArray[lfuIndex] = pagesArray[i];                
+                frequency[lfuIndex]++;
+            }
+            for(int j=0; j<n_pages; j++){
+                printf("%d  ", frequency[j]);
+            }
+        }
+    }
 }
 
 int main(){
@@ -62,6 +124,6 @@ int main(){
         printf("%d  ", pagesArray[i]);
     }
     // fifo(pagesArray);
-    lru(pagesArray);
+    lfu(pagesArray);
     return 0;
 }

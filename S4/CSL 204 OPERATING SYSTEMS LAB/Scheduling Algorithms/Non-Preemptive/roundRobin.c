@@ -3,14 +3,14 @@
 #define MAX_PROCESSES 10
 
 struct Process {
-    int pid;          // Process ID
-    int burst_time;   // Burst time of the process
-    int remaining_bt; // Remaining burst time of the process
+    int pid;
+    int burst_time;
+    int remaining_bt;
 };
 
 void roundRobin(struct Process p[], int n, int quantum) {
-    int total_time = 0; // Total execution time
-    int completed = 0;  // Number of completed processes
+    int total_time = 0;
+    int completed = 0; 
     
     // Initialize remaining burst time for all processes
     for (int i = 0; i < n; i++) {
@@ -20,21 +20,13 @@ void roundRobin(struct Process p[], int n, int quantum) {
     while (completed < n) {
         for (int i = 0; i < n; i++) {
             if (p[i].remaining_bt > 0) {
-                // Execute the process for the given quantum or its remaining burst time
-                int execution_time = (p[i].remaining_bt < quantum) ? p[i].remaining_bt : quantum;
-                
-                // Update remaining burst time for the process
+                int execution_time = (p[i].remaining_bt < quantum) ? p[i].remaining_bt : quantum;                                
                 p[i].remaining_bt -= execution_time;
-                
-                // Update total execution time
                 total_time += execution_time;
-                
-                // Print the progress of the execution
                 printf("Executing process %d for %d units of time. Remaining burst time: %d\n",
                        p[i].pid, execution_time, p[i].remaining_bt);
                 
                 if (p[i].remaining_bt == 0) {
-                    // The process has completed execution
                     completed++;
                 }
             }
@@ -45,9 +37,9 @@ void roundRobin(struct Process p[], int n, int quantum) {
 }
 
 int main() {
-    int n;             // Number of processes
+    int n;  
     struct Process p[MAX_PROCESSES];
-    int quantum;       // Quantum time for Round Robin
+    int quantum;
     
     printf("Enter the number of processes: ");
     scanf("%d", &n);
