@@ -1,0 +1,27 @@
+CREATE TABLE EMPLOYEE(
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(30),
+    age INT,
+    salary INT
+    );
+
+INSERT INTO EMPLOYEE
+VALUES
+(1, "David John", 27, 30000),
+(2, "James Albert", 25, 20000),
+(3, "Jose", 29, 18000),
+(4, "Joseph", 24, 24000);
+
+SELECT SUM(salary) FROM EMPLOYEE;
+
+SELECT AVG(age) FROM EMPLOYEE;
+
+SELECT COUNT(*) FROM EMPLOYEE;
+
+SELECT MAX(salary) FROM EMPLOYEE;
+
+SELECT MIN(salary) FROM EMPLOYEE;
+
+SELECT MAX(salary)-MIN(salary) FROM EMPLOYEE;
+
+SELECT MAX(salary)-MIN(salary) AS DIFFERENCE FROM EMPLOYEE;
